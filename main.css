@@ -1,21 +1,33 @@
-body{
-    font-family: helvetica;
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-ul{
-    font-family: monospace;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: yellow;
 }
 
-li{
-    list-style: circle;
+li {
+    float: left;
 }
 
-.list{
-    list-style: square;
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-#date {
-    font-size: 12px;
-    font-style: italic;
-    font-weight: bold;
+li a:hover {
+    background-color: blue;
+}
+
+p {
+    color: white;
 }
