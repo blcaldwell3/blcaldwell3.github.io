@@ -28,6 +28,11 @@ li a:hover {
     background-color: blue;
 }
 
+a.active{
+    background-color: blue;
+    color: white;
+}
+
 p {
     color: white;
 }
