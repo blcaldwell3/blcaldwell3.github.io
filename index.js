@@ -25,7 +25,7 @@ let powerPillTimer = null;
 function gameOver(pacman, grid)
 {
     document.removeEventListener('keydown', e =>
-        pacman.handleKeyInput(e, gameBoard.objectExist));
+        pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard)));
 
     gameBoard.showGameStatus(gameWin);
 
@@ -118,7 +118,7 @@ function startGame()
     const pacman = new Pacman(2, 287);
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
     document.addEventListener('keydown', (e) =>
-        pacman.handleKeyInput(e, gameBoard.objectExist)
+        pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
     );
 
     const ghosts = [

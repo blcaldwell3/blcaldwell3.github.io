@@ -1,4 +1,4 @@
-import {GRID_SIZE, CELL_SIZE, OBJECT_TYPE, CLASS_LIST} from './setup'
+import {GRID_SIZE, CELL_SIZE, OBJECT_TYPE, CLASS_LIST} from './setup';
 
 class GameBoard
 {
@@ -13,7 +13,7 @@ class GameBoard
     {
         const div = document.createElement('div')
         div.classList.add('game-status');
-        div.ineerHTML = `${gameWin ? 'WIN!' : 'GAME OVER!'}`;
+        div.innerHTML = `${gameWin ? 'WIN!' : 'GAME OVER!'}`;
         this.DOMGrid.appendChild(div);
     }
 
@@ -22,16 +22,17 @@ class GameBoard
         this.dotCount = 0;
         this.grid = [];
         this.DOMGrid.innerHTML = '';
-        this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px)`;
+        this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px);`;
         
         level.forEach((square, i) =>
         {
-            const div = document.createElement('div')
+            const div = document.createElement('div');
             div.classList.add('square', CLASS_LIST[square]);
             div.style.cssText = `width: ${CELL_SIZE}px; height: ${CELL_SIZE}px;`;
             this.DOMGrid.appendChild(div);
             this.grid.push(div);
-
+            
+            // Add dots
             if (CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
         })
     }
@@ -43,10 +44,10 @@ class GameBoard
 
     removeObject(pos, classes)
     {
-        this.grid[pos].classList.add(...classes);
+        this.grid[pos].classList.remove(...classes);
     }
 
-    objectExist(pos, classes)
+    objectExist(pos, object)
     {
         return this.grid[pos].classList.contains(object);
     }
@@ -61,13 +62,13 @@ class GameBoard
         if (character.shouldMove())
         {
             const { nextMovePos, direction } = character.getNextMove(
-                this.objectExist
+                this.objectExist.bind(this)
             );
             const {classesToRemove, classesToAdd} = character.makeMove();
 
             if (character.rotation && nextMovePos !== character.pos)
             {
-                this.rotateDiv(nextMovePos, characrer.dir.rotation);
+                this.rotateDiv(nextMovePos, character.dir.rotation);
                 this.rotateDiv(character.pos, 0);
             }
 

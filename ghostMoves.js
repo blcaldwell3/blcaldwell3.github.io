@@ -1,7 +1,7 @@
-import {DIRECTIONS, OBJECT_TYPE} from './setup'
+import {DIRECTIONS, OBJECT_TYPE} from './setup';
 
 // Random Movement (Just for use as a prototype)
-export function randomMovement(postion, direction, objectExist)
+export function randomMovement(position, direction, objectExist)
 {
     let dir = direction;
     let nextMovePos = position + dir.movement;

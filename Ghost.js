@@ -1,4 +1,5 @@
-import {DIRECTIONS, OBJECT_TYPE} from './setup'
+import {DIRECTIONS, OBJECT_TYPE} from './setup';
+import { randomMovement } from './ghostMoves';
 
 class Ghost
 {
@@ -23,7 +24,6 @@ class Ghost
             return true;
         }
         this.timer++;
-        return false;
     }
 
     getNextMove(objectExist)

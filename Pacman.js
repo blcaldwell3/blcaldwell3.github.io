@@ -65,9 +65,7 @@ class Pacman
         }
 
         const nextMovePos = this.pos + dir.movement;
-        if (objectExist(nextMovePos, OBJECT_TYPE.WALL) || 
-            objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)
-        ) return;
+        if (objectExist(nextMovePos, OBJECT_TYPE.WALL)) return;
         this.dir = dir;
     }
 }
