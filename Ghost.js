@@ -1,5 +1,5 @@
-import {DIRECTIONS, OBJECT_TYPE} from './setup';
-import { randomMovement } from './ghostMoves';
+import {DIRECTIONS, OBJECT_TYPE} from './setup.js';
+import { randomMovement } from './ghostMoves.js';
 
 class Ghost
 {

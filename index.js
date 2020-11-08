@@ -1,9 +1,9 @@
-import  {LEVEL, OBJECT_TYPE } from './setup';
-import {randomMovement} from './ghostMoves';
+import  {LEVEL, OBJECT_TYPE } from './setup.js';
+import {randomMovement} from './ghostMoves.js';
 // Classes
-import GameBoard from './GameBoard';
-import Pacman from './Pacman';
-import Ghost from './Ghost';
+import GameBoard from './GameBoard.js';
+import Pacman from './Pacman.js';
+import Ghost from './Ghost.js';
 
 // DOM Elements
 const gameGrid = document.querySelector('#game');
