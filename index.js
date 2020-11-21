@@ -21,6 +21,13 @@ let timer = null;
 let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
+let stopwatchStart = 0;
+let stopwatchNow = 0;
+let stopwatchDiff = 0;
+let min = 0;
+let sec = 0;
+let ms = 0;
+let printme = "";
 
 function gameOver(pacman, grid)
 {
@@ -102,7 +109,13 @@ function gameLoop(pacman, ghosts)
     }
 
     // Show the score
-    scoreTable.innerHTML = score;
+    stopwatchNow = Date.now();
+    stopwatchDiff = stopwatchNow - stopwatchStart;
+    min = Math.floor((stopwatchDiff / 1000) / 60);
+    sec = Math.floor((stopwatchDiff / 1000) % 60);
+    ms = Math.floor((stopwatchDiff % 1000) / 10);
+    printme = min.toString() + ":" + sec.toString() + ":" + ms.toString();
+    scoreTable.innerHTML = printme;
 }
 
 function startGame()
@@ -128,6 +141,7 @@ function startGame()
         new Ghost(2, 251, randomMovement, OBJECT_TYPE.CLYDE)
     ]
 
+    stopwatchStart = Date.now();
     timer = setInterval(() => gameLoop(pacman, ghosts), GLOBAL_SPEED);
 }
 
