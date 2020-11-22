@@ -127,7 +127,7 @@ function startGame()
 
     startButton.classList.add('hide');
 
-    gameBoard.createGrid(LEVEL2);
+    gameBoard2.createGrid(LEVEL2);
 
     const pacman = new Pacman(2, 287);
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
