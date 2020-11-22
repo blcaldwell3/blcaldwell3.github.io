@@ -1,4 +1,4 @@
-import  {LEVEL, OBJECT_TYPE } from './setup.js';
+import  {LEVEL2, OBJECT_TYPE } from './setup.js';
 import {randomMovement} from './ghostMoves.js';
 // Classes
 import GameBoard from './GameBoard.js';
@@ -13,7 +13,7 @@ const startButton = document.querySelector('#start-button')
 //Game Constants
 const POWER_PILL_TIME = 10000; //10000 ms
 const GLOBAL_SPEED = 80; //80 ms
-const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL);
+const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL2);
 
 //Initial Setup
 let score = 0;
@@ -126,7 +126,7 @@ function startGame()
 
     startButton.classList.add('hide');
 
-    gameBoard.createGrid(LEVEL);
+    gameBoard.createGrid(LEVEL2);
 
     const pacman = new Pacman(2, 287);
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
