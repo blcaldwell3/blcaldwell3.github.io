@@ -13,8 +13,8 @@ const startButton = document.querySelector('#start-button')
 //Game Constants
 const POWER_PILL_TIME = 10000; //10000 ms
 const GLOBAL_SPEED = 80; //80 ms
-const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL);
-const gameBoard2 = GameBoard.createGameBoard(gameGrid, LEVEL2);
+const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL2);
+//const gameBoard2 = GameBoard.createGameBoard(gameGrid, LEVEL2);
 
 //Initial Setup
 let score = 0;
@@ -127,7 +127,7 @@ function startGame()
 
     startButton.classList.add('hide');
 
-    gameBoard2.createGrid(LEVEL2);
+    gameBoard.createGrid(LEVEL2);
 
     const pacman = new Pacman(2, 287);
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
